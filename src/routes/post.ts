@@ -1,15 +1,16 @@
 import { Router } from "express";
 import PostController from "../controllers/postController";
+import { checkJwt } from "../middleware/checkJwt";
 
 const router = Router();
 
 //get post
-router.get("/", PostController.getAllPost);
+router.get("/", [checkJwt], PostController.getAllPost);
 //create post
-router.post("/", PostController.create);
+router.post("/", [checkJwt], PostController.create);
 //update post
-router.put("/:id", PostController.update);
+router.put("/:id", [checkJwt], PostController.update);
 //delete post
-router.delete("/:id", PostController.delete);
+router.delete("/:id", [checkJwt], PostController.delete);
 
 export default router;
