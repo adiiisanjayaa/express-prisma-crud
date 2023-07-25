@@ -1,7 +1,4 @@
 import { Request, Response } from "express"
-// import * as jwt from "jsonwebtoken";
-// import config from "../config/config";
-// import { validate } from "class-validator";
 import { PrismaClient } from "@prisma/client";
 
 class PostController {
@@ -69,10 +66,6 @@ class PostController {
         })
         res.json(post)
     }
-
-    
-
-
 }
 
 export default PostController;
